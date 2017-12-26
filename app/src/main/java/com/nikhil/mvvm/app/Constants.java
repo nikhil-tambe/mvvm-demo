@@ -11,10 +11,14 @@ public interface Constants {
         int DB_VERSION = 1;
     }
 
-    public interface FragmentConstants {
+    interface FragmentConstants {
         String HOME_FRAG_TAG = "HomeFrag";
         String ADD_TASK_FRAG_TAG = "AddTaskFrag";
         String DETAILS_FRAG_TAG = "DetailsFrag";
+    }
+
+    interface Intents {
+        String EXTRA_ITEM_ID = "EXTRA_ITEM_ID";
     }
 
 }

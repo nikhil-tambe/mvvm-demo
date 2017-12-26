@@ -42,4 +42,7 @@ ext {
     daggerVersion = '2.13'
     lifecycle = '1.0.0-beta2'
 
+    // Views
+    circleImageViewVersion = '2.1.0'
+
 }

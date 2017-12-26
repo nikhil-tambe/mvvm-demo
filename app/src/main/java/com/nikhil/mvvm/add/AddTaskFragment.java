@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,8 +34,9 @@ import butterknife.OnClick;
 
 public class AddTaskFragment extends Fragment{
 
-    @BindView(R.id.taskTitle_EditText)
-    EditText taskTitle_EditText;
+    //@BindView(R.id.taskTitle_EditText)
+    private EditText taskTitle_EditText;
+    private Button addTask_Button;
     @Inject
     ViewModelProvider.Factory factory;
 
@@ -63,12 +66,23 @@ public class AddTaskFragment extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_add_task, container, false);
-        ButterKnife.bind(this, v);
+        //ButterKnife.bind(this, v);
+
+        taskTitle_EditText = v.findViewById(R.id.taskTitle_EditText);
+        addTask_Button = v.findViewById(R.id.addTask_Button);
+
+        addTask_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("nikhil ", "onClick: " + taskTitle_EditText.getText().toString());
+                addTask();
+            }
+        });
 
         return v;
     }
 
-    @OnClick(R.id.addTask_Button)
+    //@OnClick(R.id.addTask_Button)
     public void addTask(){
         String taskTitle = taskTitle_EditText.getText().toString();
 
